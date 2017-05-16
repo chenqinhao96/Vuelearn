@@ -1,0 +1,23 @@
+body {
+    overflow: hidden;
+}
+#app {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+.list-item {
+    transition: transform 1s;
+    display: inline-block;
+    margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+.list-enter, .list-leave-active {
+    opacity: 0;
+    transform: translateY(30px);
+}
+.list-leave-active {
+    position: absolute;
+}

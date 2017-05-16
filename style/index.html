@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<body>
+<div id="app">
+    <div :class="{ active: isActive }">
+        <p>Hello World</p>
+        <p :class="{ 'text-danger': hasError }">Error</p>
+    </div>
+    <div :class="classObject">
+        <p>Chen Qin Hao</p>
+    </div>
+    <div :class="classObj">
+        <p>CHEN</p>
+    </div>
+    <div :class="[ isActive ? activeClass : '', errorClass ]">
+        <p>QIN Hao</p>
+    </div>
+    <div :style="styleObject">
+        OK?
+    </div>
+    <my-component></my-component>
+    <div v-if="ok">yes</div>
+    <div v-else>no</div>
+    <template v-if="ok">
+        <h1>Title</h1>
+        <p>Pragraph 1</p>
+        <p>Pragraph 2</p>
+    </template>
+    <div v-if="Math.random() > 0.5">
+        Now you see
+    </div>
+    <div v-else>
+        Now you don't
+    </div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

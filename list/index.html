@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item, index) of items">
+            {{ index }} - {{ parentMessage }} : {{ item.message }}
+        </li>
+        <template v-for="item of items">
+            <li> {{ item.message }} </li>
+        </template>
+    </ul>
+    <ul>
+        <li v-for="(value, key, index) of object">{{ index }}.{{ key }} : {{ value }}</li>
+    </ul>
+    <div>
+        <span v-for="n in 10">{{ n }}</span>
+    </div>
+    <input type="text"
+           v-model="newTodoText"
+           @keyup.enter="addNewTodo"
+           placeholder="Add a todo">
+    <ul>
+        <li is="todo-item"
+            v-for="(todo, index) of todos"
+            :title="todo.title"
+            @remove="toggleConplete(index)"
+            v-if="!todo.isComplete">
+        </li>
+    </ul>
+    <div v-for="todo in todos">
+        {{ todo.title}}
+    </div>
+    <button @click="todos.shift()">shift</button>
+    <button @click="todos.unshift({title:'Chenqinho'})">unshift</button>
+    <button @click="todos.sort()">sort</button>
+    <button @click="todos.reverse()">reverse</button>
+    <button @click="warn('Chenqinhao message', $event)">Message</button>
+    <form @submit.prevent="onSubmit">
+        <input type="submit" value="提交">
+    </form>
+    <div @click.capture="onParent">
+        <p>hello</p>
+        <button @click.stop="onChild">capture</button>
+    </div>
+    <button @click.once="onChild">once</button>
+    <input @click.ctrl="onMeta">
+
+    <p>Multipart</p>
+    <span>Multipart message is:</span>
+    <p style="white-space: pre">{{ message }}</p>
+    <br>
+    <textarea v-model="message" placeholder="add new message"></textarea>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

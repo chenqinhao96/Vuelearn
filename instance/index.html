@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>{{a}}</p>
+    <span v-once>Message: {{ msg }}</span>
+    <div v-html="rawHtml"></div>
+    <button :disabled="disabled">
+        disabled: {{ disabled }}
+    </button>
+    <div v-if="seen">
+        {{ 1 + 1 }}
+    </div>
+    <div v-show="!seen">
+        {{ ok ? 'YES' : 'NO' }}
+    </div>
+    <div>
+        {{ message.split('').reverse().join('') }}
+    </div>
+    <div v-bind:id="'list-' + id">{{ id }}</div>
+    <a :href="url" target="_blank">{{ url }}</a>
+    <button @click="doSomething">doSomething</button>
+    <form @submit.prevent="doSubmit">
+        <input type="text" v-model="msg">
+        <input type="submit" value="提交">
+    </form>
+    <div>{{ msg | capitalize | filterA | filterB }}</div>
+    <div>
+        {{ msg | reverseC }}
+    </div>
+    <div>
+        {{ reverseMsg }}
+    </div>
+    <div>
+        {{ reverseStr(msg) }}
+    </div>
+    <div>
+        {{ now }}
+    </div>
+    <div>{{ fullName }}</div>
+    <div>{{ fullName1 }}</div>
+    <input v-model="firstName">
+    <input v-model="lastName">
+    <div>
+        <p>
+            Ask a yes/no question:
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

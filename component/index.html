@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <todo-item todo="hello"></todo-item>
+    </ol>
+    <my-component></my-component>
+    <child></child>
+    <ol>
+        <li is="child"></li>
+    </ol>
+    <div>
+        <simple-counter :count="9"></simple-counter>
+        <simple-counter :count="2"></simple-counter>
+        <simple-counter :count="1"></simple-counter>
+    </div>
+</div>
+<div id="app1">
+    <ol>
+        <todo-item v-for="item in list" :todo="item"></todo-item>
+    </ol>
+    <my-list :items="items">
+        <template slot="item" scope="p">
+            <li>{{ p.text }}</li>
+        </template>
+    </my-list>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
